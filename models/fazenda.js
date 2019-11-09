@@ -8,5 +8,11 @@ export default (sequelize, DataTypes) => {
     }
   });
 
+  Fazenda.associate = models => {
+    Fazenda.hasMany(models.Area, {
+      foreignKey: "fazendaId"
+    });
+  };
+
   return Fazenda;
 };

@@ -41,3 +41,5 @@ models.sequelize.sync({}).then(() => {
     console.log(`http://${IP}:${PORT}/graphql`);
   });
 });
+
+

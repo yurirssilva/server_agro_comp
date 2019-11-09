@@ -3,6 +3,14 @@ import models from "../models";
 export const getFazendas = async args => {
   const fazendas = await models.Fazenda.findAll({
     where: {
+      userId: args.userId
+    }
+  });
+  return fazendas;
+};
+export const fazendas = async args => {
+  const fazendas = await models.Fazenda.findAll({
+    where: {
       userId: args.id
     }
   });
@@ -11,9 +19,9 @@ export const getFazendas = async args => {
 export const createFazenda = async (args, req) => {
 
   try {
-    if (!req.isAuth) {
+    /*if (!req.isAuth) {
       throw new Error("Acesso Negado!!");
-    }
+    }*/
 
     const existingFazenda = await models.Fazenda.findOne({
       where: { name: args.name, userId: req.userId }

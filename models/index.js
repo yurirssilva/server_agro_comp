@@ -7,7 +7,12 @@ const sequelize = new Sequelize(process.env.DB_HOST, process.env.DB_NAME, proces
 
 const models = {
   User: sequelize.import("./user"),
-  Fazenda: sequelize.import("./fazenda")
+  Fazenda: sequelize.import("./fazenda"),
+  Area: sequelize.import("./area"),
+  Capim: sequelize.import("./capim"),
+  Lancamento: sequelize.import("./lancamento"),
+  DadosManuais: sequelize.import("./dadosManuais"),
+  DadosAutomatico: sequelize.import("./dadosAutomatico")
 };
 
 Object.keys(models).forEach(modelName => {

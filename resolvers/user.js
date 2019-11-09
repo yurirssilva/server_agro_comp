@@ -2,6 +2,8 @@ import models from "../models";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+import fazenda from "./fazenda"
+
 require('dotenv/config');
 
 export const createUser = async args => {
@@ -32,8 +34,11 @@ export const createUser = async args => {
 };
 
 export const getUser = async args => {
+  console.log(args.id);
   try {
+    
     const user = await models.User.findByPk(args.id);
+    //user.fazendas = fazenda.getFazendas(args.id);
     if (!user) {
       throw new Error("Usuário não existente");
     }

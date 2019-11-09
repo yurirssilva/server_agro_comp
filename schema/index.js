@@ -18,9 +18,9 @@ type Fazenda {
 }
 
 type RootQuery {
-  getUser(id: Int!): User!
+  getUser(id: Int!): User
   login(email: String!, password: String!): AuthData!
-  getFazendas(id: Int!): [Fazenda!]!
+  getFazendas(userId: Int!): [Fazenda!]
 }
 
 type RootMutation {
