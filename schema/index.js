@@ -6,15 +6,15 @@ type User {
   email: String!
   fazendas: [Fazenda!]!
 }
-type Fazenda {
-  id: Int!
-  name: String!
-  userId: User!
-}
 type AuthData {
   userId: String!
   token: String!
   tokenExpiration: Int!
+}
+type Fazenda {
+  id: Int!
+  name: String!
+  userId: User!
 }
 
 type RootQuery {

@@ -35,7 +35,7 @@ app.use(
 const PORT = 3002 || process.env;
 const IP = "localhost";
 // Express: Listener
-models.sequelize.sync({force: true}).then(() => {
+models.sequelize.sync({}).then(() => {
   app.listen(PORT, () => {
     console.log(`The server has started on port: ${PORT}`);
     console.log(`http://${IP}:${PORT}/graphql`);

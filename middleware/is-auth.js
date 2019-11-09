@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+
 module.exports = (req, res, next) => {
   const authHeader = req.get("Authorization");
   if (!authHeader) {
@@ -15,7 +16,7 @@ module.exports = (req, res, next) => {
 
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, "senhascreta");
+    decodedToken = jwt.verify(token, process.env.PASSWORD_SECRET);
   } catch (err) {
     req.isAuth = false;
     return next();
