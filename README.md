@@ -1,1 +1,0 @@
-# server_agro_comp
