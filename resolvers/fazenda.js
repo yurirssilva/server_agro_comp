@@ -19,6 +19,7 @@ export const getFazenda = async args => {
       fazendaId: args.id
     }
   });
+  
 
   return { ...fazenda, areas }
 };

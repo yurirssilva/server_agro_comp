@@ -39,7 +39,8 @@ type Lancamento {
   id: ID!
   data: String!
   tipo: String!
-  staus: Int!
+  status: Int!
+  areaId: ID!
 }
 
 type DadosManuais {
@@ -64,6 +65,7 @@ type RootQuery {
   getLancamentos(areaId: ID!): [Lancamento!]
   getFazenda(id: ID!): Fazenda  
   getAllCapims: [Capim]
+  getLancamento(id: ID!): Lancamento
 }
 
 type RootMutation {
@@ -77,8 +79,8 @@ type RootMutation {
   createCapim(tipo: String!, alturaEntrada: Float!, alturaSaidaMaiorFert: Float!, alturaSaidaMenorFert: Float): Capim!
   updateCapim(id: ID!, tipo: String, alturaEntrada: Float, alturaSaidaMaiorFert: Float, alturaSaidaMenorFert: Float): Boolean!
   deleteCapim(id: ID!): Boolean!
-  createLancamento(data: String!, tipo: String!, areaId: ID!, staus: Int!): Lancamento!
-  updateLancamento(id: ID!, data: String, tipo: String, areaId: ID, staus: Int): Boolean!
+  createLancamento(data: String!, tipo: String!, areaId: ID!, status: Int!): Lancamento!
+  updateLancamento(id: ID!, data: String, tipo: String, areaId: ID, status: Int): Boolean!
   deleteLancamento(id: ID!): Boolean!
   createDadosManuais(altura: Float!, localizacao: String!, observacoes: String, lancamentoId: ID): DadosManuais!
   updateDadosManuais(id: ID!, altura: Float!, localizacao: String!, observacoes: String, lancamentoId: ID): Boolean!
