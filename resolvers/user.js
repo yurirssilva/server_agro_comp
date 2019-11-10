@@ -20,20 +20,13 @@ export const createUser = async args => {
       ...args,
       password: hashedPassword
     });
-    const token = jwt.sign(
-      { userId: user.id, email: user.email },
-      process.env.PASSWORD_SECRET,
-      {
-        expiresIn: "1h"
-      }
-    );
-    return { userId: user.id, token: token, tokenExpiration: 1 };
+    return user
   } catch (err) {
     throw err;
   }
 };
 
-export const getUser = async (args, req) => {
+export const getUser = async args => {
   try {
     
     const user = await models.User.findByPk(args.id);
