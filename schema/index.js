@@ -66,6 +66,8 @@ type RootQuery {
   getFazenda(id: ID!): Fazenda  
   getAllCapims: [Capim]
   getLancamento(id: ID!): Lancamento
+  getDadosManuais(lancamentoId: ID!): [DadosManuais]
+  getDadosAutomaticos(lancamentoId: ID!): [DadosAutomaticos]
 }
 
 type RootMutation {
