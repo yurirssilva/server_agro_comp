@@ -4,7 +4,7 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         mapa: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         fertilidadeSolo: {
             type: DataTypes.BOOLEAN,

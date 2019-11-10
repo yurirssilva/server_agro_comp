@@ -17,14 +17,9 @@ export const getFazenda = async args => {
       id: args.id
     }
   });
-  const areas = await getAreas({ fazendaId: args.id })
+  const areas = getAreas({ fazendaId: args.id })
   
-  return { ...fazenda, areas }
-};
-
-export const areas = async args => {
-  const areas = getAreas(args)
-  return areas;
+  return { fazenda, areas }
 };
 
 export const fazendas = async args => {
