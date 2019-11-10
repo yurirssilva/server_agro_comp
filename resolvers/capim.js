@@ -23,6 +23,10 @@ export const getCapims = async args => {
     });
     return capims;
 };
+export const getAllCapims = async args => {
+    const capims = await models.Capim.findAll();
+    return capims;
+};
 
 export const updateCapim = async (args, req) => {
     try {

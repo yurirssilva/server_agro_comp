@@ -14,6 +14,7 @@ type AuthData {
 type Fazenda {
   id: ID!
   nome: String!
+  areas: [Area]
 }
 
 type Area {
@@ -54,12 +55,15 @@ type DadosAutomaticos {
 }
 
 type RootQuery {
-  getUser(id: ID!): User
+  getUser(id: ID!): AuthData
   login(email: String!, password: String!): AuthData!
   getFazendas(userId: ID!): [Fazenda!]
   getAreas(fazendaId: ID!): [Area!]
   getCapims(id: ID!): [Capim!]
   getLancamentos(areaId: ID!): [Lancamento!]
+  areas: [Area]
+  getFazenda(id: ID!): Fazenda!
+  getAllCapims: [Capim]
 }
 
 type RootMutation {
@@ -67,7 +71,7 @@ type RootMutation {
   createFazenda(nome: String!): Fazenda!
   updateFazenda(id: ID!, nome: String): Boolean!
   deleteFazenda(id: ID!): Boolean!
-  createArea(nome: String!, mapa: String!, fertilidadeSolo: Boolean!, observacao: String!, fazendaId: ID!, capimId: ID!): Area!
+  createArea(nome: String!, mapa: String!, fertilidadeSolo: Boolean!, observacao: String!, fazendaId: ID!, capimId: ID): Area!
   updateArea(id: ID!, nome: String, mapa: String, fertilidadeSolo: Boolean, observacao: String, fazendaId: ID, capimId: ID): Boolean!
   deleteArea(id: ID!): Boolean!
   createCapim(tipo: String!, alturaEntrada: Float!, alturaSaidaMaiorFert: Float!, alturaSaidaMenorFert: Float): Capim!

@@ -33,8 +33,7 @@ export const createUser = async args => {
   }
 };
 
-export const getUser = async args => {
-  console.log(args.id);
+export const getUser = async (args, req) => {
   try {
     
     const user = await models.User.findByPk(args.id);
