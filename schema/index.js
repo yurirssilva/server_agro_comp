@@ -39,6 +39,7 @@ type Lancamento {
   id: ID!
   data: String!
   tipo: String!
+  staus: Int!
 }
 
 type DadosManuais {
@@ -61,13 +62,13 @@ type RootQuery {
   getAreas(fazendaId: ID!): [Area!]
   getCapims(id: ID!): [Capim!]
   getLancamentos(areaId: ID!): [Lancamento!]
-  getFazenda(id: ID!): Fazenda!
+  getFazenda(id: ID!): Fazenda  
   getAllCapims: [Capim]
 }
 
 type RootMutation {
   createUser(email: String!, password: String!): User!
-  createFazenda(nome: String!): Fazenda!
+  createFazenda(nome: String!, userId: ID!): Fazenda!
   updateFazenda(id: ID!, nome: String): Boolean!
   deleteFazenda(id: ID!): Boolean!
   createArea(nome: String!, mapa: String!, fertilidadeSolo: Boolean!, observacao: String!, fazendaId: ID!, capimId: ID): Area!
@@ -76,8 +77,8 @@ type RootMutation {
   createCapim(tipo: String!, alturaEntrada: Float!, alturaSaidaMaiorFert: Float!, alturaSaidaMenorFert: Float): Capim!
   updateCapim(id: ID!, tipo: String, alturaEntrada: Float, alturaSaidaMaiorFert: Float, alturaSaidaMenorFert: Float): Boolean!
   deleteCapim(id: ID!): Boolean!
-  createLancamento(data: String!, tipo: String!, areaId: ID!): Lancamento!
-  updateLancamento(id: ID!, data: String, tipo: String, areaId: ID): Boolean!
+  createLancamento(data: String!, tipo: String!, areaId: ID!, staus: Int!): Lancamento!
+  updateLancamento(id: ID!, data: String, tipo: String, areaId: ID, staus: Int): Boolean!
   deleteLancamento(id: ID!): Boolean!
   createDadosManuais(altura: Float!, localizacao: String!, observacoes: String, lancamentoId: ID): DadosManuais!
   updateDadosManuais(id: ID!, altura: Float!, localizacao: String!, observacoes: String, lancamentoId: ID): Boolean!

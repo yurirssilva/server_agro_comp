@@ -3,7 +3,7 @@ import {
   getFazenda,
   createFazenda,
   updateFazenda,
-  deleteFazenda
+  deleteFazenda,
 } from "./fazenda";
 import { createUser, login } from "./user";
 import { createArea, getAreas, updateArea, deleteArea } from "./area";
@@ -42,9 +42,8 @@ const rootResolver = {
   updateDadosAutomaticos, 
   deleteDadosAutomaticos,
   getAllCapims
+  
 };
-
-console.log(getFazenda);
 
 module.exports = rootResolver;
 

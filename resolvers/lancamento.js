@@ -36,6 +36,7 @@ export const updateLancamento = async (args, req) => {
         if (!existingLancamento) {
             throw new Error("Lançamento não encontrado");
         }
+        
 
         await models.Lancamento.update(
             {
