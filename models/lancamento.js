@@ -5,6 +5,9 @@ export default (sequelize, DataTypes) => {
       },
       tipo: {
         type: DataTypes.STRING
+      },
+      status: {
+        type: DataTypes.INTEGER
       }
     });
   

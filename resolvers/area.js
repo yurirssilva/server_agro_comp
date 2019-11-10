@@ -23,6 +23,16 @@ export const getAreas = async args => {
     });
     return area;
 };
+export const Area = async (root, args) => {
+    console.log(">>>teste");
+    
+    const area = await models.Area.findAll({
+        where: {
+            fazendaId: root.id
+        }
+    });
+    return area;
+};
 
 export const updateArea = async (args, req) => {
     try {

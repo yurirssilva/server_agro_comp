@@ -11,16 +11,19 @@ export const getFazendas = async args => {
 };
 
 export const getFazenda = async args => {
-  
-  const fazenda = await models.Fazenda.findOne({
+
+  const fazenda = await models.Fazenda.findByPk(args.id);
+
+  const areas = await models.Area.findAll({
     where: {
-      id: args.id
+      fazendaId: args.id
     }
   });
-  const areas = getAreas({ fazendaId: args.id })
   
-  return { fazenda, areas }
+
+  return { ...fazenda, areas }
 };
+
 
 export const fazendas = async args => {
   const fazendas = await models.Fazenda.findAll({

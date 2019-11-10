@@ -1,5 +1,4 @@
 import models from "../models";
-
 export const createLancamento = async (args, req) => {
 
     try {
@@ -22,7 +21,15 @@ export const getLancamentos = async args => {
             areaId: args.areaId
         }
     });
+
+    
     return lancamentos;
+};
+
+export const getLancamento = async args => {
+    const lancamento = await models.Lancamento.findByPk(args.id)
+    
+    return lancamento;
 };
 
 export const updateLancamento = async (args, req) => {
@@ -36,6 +43,7 @@ export const updateLancamento = async (args, req) => {
         if (!existingLancamento) {
             throw new Error("Lançamento não encontrado");
         }
+        
 
         await models.Lancamento.update(
             {
