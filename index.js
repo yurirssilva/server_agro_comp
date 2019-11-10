@@ -5,6 +5,8 @@ const graphqlHttp = require("express-graphql");
 const graphQlSchema = require("./schema/index");
 const graphQlResolvers = require("./resolvers/index");
 const isAuth = require("./middleware/is-auth");
+
+const cors = require('cors');
 import models from "./models";
 
 const app = express();
@@ -20,7 +22,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+app.use(cors());
 app.use(isAuth);
 
 app.use(
