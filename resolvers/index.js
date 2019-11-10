@@ -43,4 +43,8 @@ const rootResolver = {
   deleteDadosAutomaticos,
   getAllCapims
 };
+
+console.log(getFazenda);
+
 module.exports = rootResolver;
+
