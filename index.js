@@ -33,7 +33,7 @@ app.use(
 );
 
 // Express: Port
-const PORT = 3002 || process.env.PORT;
+const PORT = process.env.PORT || 3002;
 const IP = "localhost";
 
 // Express: Listener
