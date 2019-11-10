@@ -8,6 +8,7 @@ export const getFazendas = async args => {
   });
   return fazendas;
 };
+
 export const fazendas = async args => {
   const fazendas = await models.Fazenda.findAll({
     where: {
@@ -16,6 +17,7 @@ export const fazendas = async args => {
   });
   return fazendas;
 };
+
 export const createFazenda = async (args, req) => {
 
   try {
@@ -24,27 +26,31 @@ export const createFazenda = async (args, req) => {
     }*/
 
     const existingFazenda = await models.Fazenda.findOne({
-      where: { name: args.name, userId: req.userId }
+      where: { nome: args.nome, userId: req.userId }
     });
+
     if (existingFazenda) {
       throw new Error("Fazenda já cadastrada");
     }
+
     const fazenda = await models.Fazenda.create({
       ...args,
       userId: req.userId
     });
+
     return fazenda;
   } catch (err) {
     throw err;
   }
 };
+
 export const updateFazenda = async (args, req) => {
   try {
     /*if (!req.isAuth) {
       throw new Error('Acesso Negado!!');
     }*/
     const existingFazenda = await models.Fazenda.findOne({
-      where: { name: args.name }
+      where: { nome: args.nome }
     });
     if (existingFazenda && existingFazenda.id !== args.id) {
       throw new Error("Fazenda já cadastrada");
@@ -52,7 +58,7 @@ export const updateFazenda = async (args, req) => {
 
     await models.Fazenda.update(
       {
-        name: args.name
+        nome: args.nome
       },
       {
         where: { id: args.id },
@@ -66,6 +72,7 @@ export const updateFazenda = async (args, req) => {
     throw err;
   }
 };
+
 export const deleteFazenda = async (args, req) => {
   try {
     await models.Fazenda.destroy({

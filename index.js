@@ -31,9 +31,11 @@ app.use(
     graphiql: true
   })
 );
+
 // Express: Port
 const PORT = 3002 || process.env;
 const IP = "localhost";
+
 // Express: Listener
 models.sequelize.sync({}).then(() => {
   app.listen(PORT, () => {
@@ -41,5 +43,4 @@ models.sequelize.sync({}).then(() => {
     console.log(`http://${IP}:${PORT}/graphql`);
   });
 });
-
 

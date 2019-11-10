@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
   const Fazenda = sequelize.define("Fazenda", {
-    name: {
+    nome: {
       type: DataTypes.STRING
     },
     userId: {

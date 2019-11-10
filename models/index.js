@@ -12,7 +12,7 @@ const models = {
   Capim: sequelize.import("./capim"),
   Lancamento: sequelize.import("./lancamento"),
   DadosManuais: sequelize.import("./dadosManuais"),
-  DadosAutomatico: sequelize.import("./dadosAutomatico")
+  DadosAutomaticos: sequelize.import("./dadosAutomaticos")
 };
 
 Object.keys(models).forEach(modelName => {

@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
       Lancamento.hasMany(models.DadosManuais, {
         foreignKey: "lancamentoId"
       });
-      Lancamento.hasMany(models.DadosAutomatico, {
+      Lancamento.hasMany(models.DadosAutomaticos, {
         foreignKey: "lancamentoId"
       });
     };
