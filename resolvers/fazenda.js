@@ -1,4 +1,5 @@
 import models from "../models";
+import { getAreas } from "./area"
 
 export const getFazendas = async args => {
   const fazendas = await models.Fazenda.findAll({
@@ -7,6 +8,22 @@ export const getFazendas = async args => {
     }
   });
   return fazendas;
+};
+
+export const getFazenda = async args => {
+  const fazenda = await models.Fazenda.findOne({
+    where: {
+      id: args.id
+    }
+  });
+  const teste = args.id
+  const areas = await getAreas(teste)
+  return {fazenda, areas }
+};
+
+export const areas = async args => {
+  const areas = getAreas(args)
+  return areas;
 };
 
 export const fazendas = async args => {

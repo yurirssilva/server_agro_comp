@@ -1,12 +1,14 @@
 import {
   getFazendas,
+  getFazenda,
   createFazenda,
   updateFazenda,
-  deleteFazenda
+  deleteFazenda,
+  areas
 } from "./fazenda";
 import { createUser, login } from "./user";
 import { createArea, getAreas, updateArea, deleteArea } from "./area";
-import { createCapim, getCapims, updateCapim, deleteCapim } from "./capim";
+import { createCapim, getCapims, updateCapim, deleteCapim, getAllCapims } from "./capim";
 import { createLancamento, getLancamentos, updateLancamento, deleteLancamento } from "./lancamento";
 import { createDadosManuais, getDadosManuais, updateDadosManuais, deleteDadosManuais } from "./dadosManuais";
 import { createDadosAutomaticos, getDadosAutomaticos, updateDadosAutomaticos, deleteDadosAutomaticos } from "./dadosAutomaticos";
@@ -38,6 +40,9 @@ const rootResolver = {
   createDadosAutomaticos, 
   getDadosAutomaticos, 
   updateDadosAutomaticos, 
-  deleteDadosAutomaticos
+  deleteDadosAutomaticos,
+  areas,
+  getFazenda,
+  getAllCapims
 };
 module.exports = rootResolver;
