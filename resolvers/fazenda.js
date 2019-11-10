@@ -11,14 +11,15 @@ export const getFazendas = async args => {
 };
 
 export const getFazenda = async args => {
+  
   const fazenda = await models.Fazenda.findOne({
     where: {
       id: args.id
     }
   });
-  const teste = args.id
-  const areas = await getAreas(teste)
-  return {fazenda, areas }
+  const areas = await getAreas({ fazendaId: args.id })
+  
+  return { ...fazenda, areas }
 };
 
 export const areas = async args => {
@@ -43,7 +44,7 @@ export const createFazenda = async (args, req) => {
     }*/
 
     const existingFazenda = await models.Fazenda.findOne({
-      where: { nome: args.nome, userId: req.userId }
+      where: { nome: args.nome }
     });
 
     if (existingFazenda) {
@@ -51,8 +52,7 @@ export const createFazenda = async (args, req) => {
     }
 
     const fazenda = await models.Fazenda.create({
-      ...args,
-      userId: req.userId
+      ...args
     });
 
     return fazenda;

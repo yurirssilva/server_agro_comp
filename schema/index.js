@@ -55,19 +55,18 @@ type DadosAutomaticos {
 }
 
 type RootQuery {
-  getUser(id: ID!): AuthData
+  getUser(id: ID!): User
   login(email: String!, password: String!): AuthData!
   getFazendas(userId: ID!): [Fazenda!]
   getAreas(fazendaId: ID!): [Area!]
   getCapims(id: ID!): [Capim!]
   getLancamentos(areaId: ID!): [Lancamento!]
-  areas: [Area]
   getFazenda(id: ID!): Fazenda!
   getAllCapims: [Capim]
 }
 
 type RootMutation {
-  createUser(email: String!, password: String!): AuthData!
+  createUser(email: String!, password: String!): User!
   createFazenda(nome: String!): Fazenda!
   updateFazenda(id: ID!, nome: String): Boolean!
   deleteFazenda(id: ID!): Boolean!
